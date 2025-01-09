@@ -1,5 +1,27 @@
 cmake_minimum_required(VERSION 3.16)
 
+######################################
+### XII Additions Begin
+######################################
+
+if(NOT XII_3RDPARTY_SDL_SUPPORT)
+  return()
+endif()
+
+if(XII_COMPILE_ENGINE_AS_DLL)
+  set(BUILD_SHARED_LIBS ON)
+else()
+  set(BUILD_SHARED_LIBS OFF)
+endif()
+
+set(SDL_DISABLE_INSTALL ON)
+set(SDL_DISABLE_UNINSTALL ON)
+set(SDL_DISABLE_INSTALL_CPACK ON)
+
+######################################
+### XII Additions End
+######################################
+
 if(NOT DEFINED CMAKE_BUILD_TYPE)
   set(cmake_build_type_undefined 1)
 endif()
@@ -391,7 +413,7 @@ set(SDL_VENDOR_INFO "" CACHE STRING "Vendor name and/or version to add to SDL_RE
 
 cmake_dependent_option(SDL_SHARED "Build a shared version of the library" ${SDL_SHARED_DEFAULT} ${SDL_SHARED_AVAILABLE} OFF)
 cmake_dependent_option(SDL_STATIC "Build a static version of the library" ${SDL_STATIC_DEFAULT} ${SDL_STATIC_AVAILABLE} OFF)
-option(SDL_TEST_LIBRARY   "Build the SDL3_test library" ON)
+option(SDL_TEST_LIBRARY   "Build the SDL3_test library" OFF)
 
 dep_option(SDL_TESTS           "Build the test directory" OFF SDL_TEST_LIBRARY OFF)
 dep_option(SDL_INSTALL_TESTS   "Install test-cases" OFF "NOT SDL_DISABLE_INSTALL;NOT SDL_FRAMEWORK" OFF)
@@ -3796,3 +3818,13 @@ string(APPEND CMAKE_OBJC_FLAGS " ${CMAKE_C_FLAGS}")
 
 SDL_PrintSummary()
 debug_show_sdl_deps()
+
+######################################
+### XII Additions Begin
+######################################
+
+unset(BUILD_SHARED_LIBS)
+
+######################################
+### XII Additions End
+######################################
