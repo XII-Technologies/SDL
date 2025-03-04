@@ -143,6 +143,16 @@ if (XII_3RDPARTY_SDL_SUPPORT)
 
   endif()
 
+  if(TARGET SDL3_Headers)
+  
+    set_property(GLOBAL APPEND PROPERTY "EXPORT_PROJECTS" SDL3_Headers)
+  
+    xii_set_project_ide_folder(SDL3_Headers "Source/ThirdParty/SDL")
+  
+    xii_set_target_output_dirs(SDL3_Headers ${XII_OUTPUT_DIRECTORY_LIB} ${XII_OUTPUT_DIRECTORY_DLL})
+  
+  endif()
+
   if(TARGET SDL3-shared)
 
     set_property(GLOBAL APPEND PROPERTY "EXPORT_PROJECTS" SDL3-shared)

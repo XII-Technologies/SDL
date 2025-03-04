@@ -4261,15 +4261,17 @@ else()
   set(SDL_SDLtest_INSTALL_CMAKEFILENAME "SDL3testTargets.cmake")
 endif()
 
-export(TARGETS SDL3_Headers NAMESPACE "SDL3::" FILE "SDL3headersTargets.cmake")
-
-if(SDL_SHARED)
-  export(TARGETS SDL3-shared NAMESPACE "SDL3::" FILE "SDL3sharedTargets.cmake")
-endif()
-
-if(SDL_STATIC)
-  export(TARGETS SDL3-static NAMESPACE "SDL3::" FILE "SDL3staticTargets.cmake")
-endif()
+# XII ADDITIONS BEGIN
+# export(TARGETS SDL3_Headers NAMESPACE "SDL3::" FILE "SDL3headersTargets.cmake")
+# 
+# if(SDL_SHARED)
+#   export(TARGETS SDL3-shared NAMESPACE "SDL3::" FILE "SDL3sharedTargets.cmake")
+# endif()
+# 
+# if(SDL_STATIC)
+#   export(TARGETS SDL3-static NAMESPACE "SDL3::" FILE "SDL3staticTargets.cmake")
+# endif()
+# XII ADDITIONS END
 
 if(SDL_TEST_LIBRARY)
   export(TARGETS SDL3_test NAMESPACE "SDL3::" FILE "SDL3testTargets.cmake")
