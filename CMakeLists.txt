@@ -4489,13 +4489,3 @@ string(APPEND CMAKE_OBJC_FLAGS " ${CMAKE_C_FLAGS}")
 
 SDL_PrintSummary()
 debug_show_sdl_deps()
-
-######################################
-### XII Additions Begin
-######################################
-
-unset(BUILD_SHARED_LIBS)
-
-######################################
-### XII Additions End
-######################################
