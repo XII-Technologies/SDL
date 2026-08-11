@@ -356,16 +356,16 @@ dep_option(SDL_OPENGL              "Include OpenGL support" OFF "SDL_VIDEO;NOT I
 dep_option(SDL_OPENGLES            "Include OpenGL ES support" OFF "SDL_VIDEO;NOT VISIONOS;NOT TVOS;NOT WATCHOS" OFF)
 set_option(SDL_PTHREADS            "Use POSIX threads for multi-threading" ${SDL_PTHREADS_DEFAULT})
 dep_option(SDL_PTHREADS_SEM        "Use pthread semaphores" ON "SDL_PTHREADS" OFF)
-dep_option(SDL_OSS                 "Support the OSS audio API" ${SDL_OSS_DEFAULT} "UNIX_SYS OR RISCOS;SDL_AUDIO" OFF)
-dep_option(SDL_ALSA                "Support the ALSA audio API" ${UNIX_SYS} "SDL_AUDIO" OFF)
+dep_option(SDL_OSS                 "Support the OSS audio API" OFF "UNIX_SYS OR RISCOS;SDL_AUDIO" OFF)
+dep_option(SDL_ALSA                "Support the ALSA audio API" OFF "SDL_AUDIO" OFF)
 dep_option(SDL_ALSA_SHARED         "Dynamically load ALSA audio support" OFF "SDL_ALSA;SDL_DEPS_SHARED" OFF)
-dep_option(SDL_JACK                "Support the JACK audio API" ${UNIX_SYS} "SDL_AUDIO" OFF)
+dep_option(SDL_JACK                "Support the JACK audio API" OFF "SDL_AUDIO" OFF)
 dep_option(SDL_JACK_SHARED         "Dynamically load JACK audio support" OFF "SDL_JACK;SDL_DEPS_SHARED" OFF)
-set_option(SDL_PIPEWIRE            "Use Pipewire audio" ${UNIX_SYS})
+set_option(SDL_PIPEWIRE            "Use Pipewire audio" OFF)
 dep_option(SDL_PIPEWIRE_SHARED     "Dynamically load Pipewire support" OFF "SDL_PIPEWIRE;SDL_DEPS_SHARED" OFF)
-dep_option(SDL_PULSEAUDIO          "Use PulseAudio" ${UNIX_SYS} "SDL_AUDIO" OFF)
+dep_option(SDL_PULSEAUDIO          "Use PulseAudio" OFF "SDL_AUDIO" OFF)
 dep_option(SDL_PULSEAUDIO_SHARED   "Dynamically load PulseAudio support" OFF "SDL_PULSEAUDIO;SDL_DEPS_SHARED" OFF)
-dep_option(SDL_SNDIO               "Support the sndio audio API" ${UNIX_SYS} "SDL_AUDIO" OFF)
+dep_option(SDL_SNDIO               "Support the sndio audio API" OFF "SDL_AUDIO" OFF)
 dep_option(SDL_SNDIO_SHARED        "Dynamically load the sndio audio API" OFF "SDL_SNDIO;SDL_DEPS_SHARED" OFF)
 set_option(SDL_RPATH               "Use an rpath when linking SDL" ${SDL_RPATH_DEFAULT})
 set_option(SDL_CLOCK_GETTIME       "Use clock_gettime() instead of gettimeofday()" ${SDL_CLOCK_GETTIME_DEFAULT})
@@ -4263,11 +4263,11 @@ endif()
 
 # XII ADDITIONS BEGIN
 # export(TARGETS SDL3_Headers NAMESPACE "SDL3::" FILE "SDL3headersTargets.cmake")
-# 
+#
 # if(SDL_SHARED)
 #   export(TARGETS SDL3-shared NAMESPACE "SDL3::" FILE "SDL3sharedTargets.cmake")
 # endif()
-# 
+#
 # if(SDL_STATIC)
 #   export(TARGETS SDL3-static NAMESPACE "SDL3::" FILE "SDL3staticTargets.cmake")
 # endif()
